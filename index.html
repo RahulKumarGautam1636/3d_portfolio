@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | [Challenge Name Here]</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .html {
+    font-size: 62.5%;
+  }
+  body {
+    font-family: Montserrat;
+  }
+
+  main {
+    height: 100vh;
+    background: white;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="375" height="658"><g fill="none" fill-rule="evenodd" stroke="gray" stroke-width="2"><path d="M172.71-101C70.623-79.38 17.478-39.688 13.273 18.074c-6.307 86.643 231.598 17.186 136.358 198-95.241 180.813-181.318 185.29-136.358 298C58.233 626.784 178.96 685.954 319.21 641.2c93.501-29.836 144.652-140.545 153.453-332.126"/><path d="M214.7-101C134.617-82.012 92.926-47.154 89.628 3.575c-4.948 76.093 181.679 15.094 106.966 173.89C121.882 336.262 54.36 340.192 89.628 439.18c35.269 98.986 129.974 150.95 239.995 111.646C402.97 524.622 443.096 427.395 450 259.141"/><path d="M250.935-103c-60.604 16.56-92.153 46.963-94.65 91.208-3.743 66.367 137.488 13.165 80.949 151.664-56.54 138.5-107.638 141.927-80.948 228.261 26.69 86.335 98.359 131.656 181.618 97.376C393.41 442.655 423.775 357.855 429 211.108"/></g></svg>'),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="375" height="658"><g fill="none" fill-rule="evenodd" stroke="gray" stroke-width="2"><path d="M172.71-101C70.623-79.38 17.478-39.688 13.273 18.074c-6.307 86.643 231.598 17.186 136.358 198-95.241 180.813-181.318 185.29-136.358 298C58.233 626.784 178.96 685.954 319.21 641.2c93.501-29.836 144.652-140.545 153.453-332.126"/><path d="M214.7-101C134.617-82.012 92.926-47.154 89.628 3.575c-4.948 76.093 181.679 15.094 106.966 173.89C121.882 336.262 54.36 340.192 89.628 439.18c35.269 98.986 129.974 150.95 239.995 111.646C402.97 524.622 443.096 427.395 450 259.141"/><path d="M250.935-103c-60.604 16.56-92.153 46.963-94.65 91.208-3.743 66.367 137.488 13.165 80.949 151.664-56.54 138.5-107.638 141.927-80.948 228.261 26.69 86.335 98.359 131.656 181.618 97.376C393.41 442.655 423.775 357.855 429 211.108"/></g></svg>');
+    background-position: right top, left bottom;
+    background-repeat: no-repeat, no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  #child {
+    margin: 2rem;
+  }
+  .toggle {
+      position : relative ;
+      display : inline-block;
+      width : 4rem;
+      height : 2rem;
+      background-color: gray;
+      border-radius: 3rem;
+   }
+  .toggle:after {
+      content: '';
+      position: absolute;
+      width: 2rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      background-color: white;
+      top: 0.1rem;
+      left: 0.1rem;
+      transition:  all 0.5s;
+   }
+  .checkbox:checked + .toggle::after {
+      left : 1.9rem;
+   }
+  .checkbox:checked + .toggle {
+      background-color: green;
+   }
+  .checkbox {
+      display : none;
+   }
+   .plans {
+     width: 20rem;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+   }
+   #annually {
+     font-family: sans-serif;
+     font-weight: bold;
+     color: gray;
+   }
+   #price {
+     font-weight: bold;
+     color: gray;
+     font-family: sans-serif;
+   }
+   .cards {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     align-items: center;
+     transform: translateY(-1rem);
+   }
+   .card {
+     box-shadow:0px 2px 10px 0px rgba(100,100,100,0.5);
+     border-radius: 5px;
+     height: 28rem;
+     width: 20rem;
+     background: white;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     align-items: center;
+   }
+   .cardMiddle {
+     box-shadow:0px 2px 10px 0px rgba(100,100,100,0.5);
+     border-radius: 5px;
+     height: 30rem;
+     width: 20rem;
+     background: Linear-Gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+     position: relative;
+     top: -0.056rem;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     align-items: center;
+    }
+    .cardMiddle div {
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+      border-color: white;
+      height: 3rem;
+      width: 15rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .cardMiddle h3, h2 {
+     color: white;
+    }
+    .card div {
+     height: 3rem;
+     width: 15rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-top: 1px solid;
+     border-bottom: 1px solid;
+     border-color: hsl(237, 63%, 64%);
+   }
+    #btn {
+     height: 2.6rem;
+     width: 15.2rem;
+     border-radius: 5px;
+     border: none;
+     background: Linear-Gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+     font-weight: bolder;
+     margin-bottom: 1rem;
+     color: white;
+     letter-spacing: 2.5px;
+   }
+     #white {
+     color: white;
+   }
+    .card h2, h3 {
+      color: hsl(232, 13%, 33%);
+    }
+   @media only screen and (max-width: 1030px) {
+     html {
+       font-size: 75%;
+     }
+     main {
+       height: 60vh;
+     }
+   }
+   @media only screen and (max-width: 800px) {
+     html {
+       font-size: 70%;
+     }
+     main {
+       height: 70vh;
+     }
+   }
+   @media only screen and (max-width: 720px) {
+     html {
+       font-size: 50%;
+     }
+
+   }
+   @media only screen and (max-width: 500px) {
+     html {
+       font-size: 90%;
+     }
+     main {
+       height: auto;
+       width: auto;
+       text-align: center;
+     }
+     .cards {
+       flex-direction: column;
+       margin: 2rem;
+       margin-top: 0;
+     }
+     .card {
+       margin: 2rem;
+     }
+     .attribution {
+       font-size: 0.7rem;
+       margin-bottom: 1rem;
+     }
+   }
+  </style>
+</head>
+<body>
+
+    <main>
+      <div id="child">
+        <h1 id="price">Our Pricing</h1>
+      </div>
+      <div class="plans" id="child">
+        <span id="annually">Monthly</span>
+        <span><input type="checkbox" id="switch" class="checkbox" onclick="myfunction()" /><label for="switch" class="toggle"></label></span>
+        <span id="annually">Annualy</span>
+      </div>
+      <div class="cards" id="child">
+        <div class="card">
+          <h3>Basic</h3>
+          <h2>$ <span id="pricetag1" style="font-size: 35px">19.99</span></h2>
+          <div><h3><span id="storage1">500 GB</span> Storage</h3></div>
+          <div><h3>2 users Allowed</h3></div>
+          <div><h3>Send up to 1 GB</h3></div>
+          <button id="btn" type="button" name="button">LEARN MORE</button>
+        </div>
+        <div class="cardMiddle">
+          <h3>Professional</h3>
+          <h2>$ <span id="pricetag2" style="font-size: 35px">24.99</span></h2>
+          <div><h3><span id="storage2">1 TB</span> Storage</h3></div>
+          <div><h3>5 Users Allowed</h3></div>
+          <div><h3>Send up to <span id="send2">10</span>GB</h3></div>
+          <button style="background:white;color:hsl(237, 63%, 64%)" id="btn" type="button" name="button">LEARN MORE</button>
+        </div>
+        <div class="card">
+          <h3>Master</h3>
+          <h2>$ <span id="pricetag3" style="font-size: 35px">39.99</span></h2>
+          <div><h3><span id="storage3">2 TB</span> Storage</h3></div>
+          <div><h3>10 Users Allowed</h3></div>
+          <div><h3>Send up to 20 GB</h3></div>
+          <button id="btn" type="button" name="button">LEARN MORE</button>
+        </div>
+      </div>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Rahul Kumar Gautam</a>.
+      </div>
+    </main>
+    <script type="text/javascript">
+    var pricetag1 = document.getElementById("pricetag1");
+    var pricetag2 = document.getElementById("pricetag2");
+    var pricetag3 = document.getElementById("pricetag3");
+    function myfunction() {
+      var checkbox = document.getElementById("switch");
+      if (checkbox.checked==true) {
+        pricetag1.innerHTML = "199.99";
+        pricetag2.innerHTML = "249.99";
+        pricetag3.innerHTML = "399.99";
+      } else {
+        pricetag1.innerHTML = "19.99";
+        pricetag2.innerHTML = "24.99";
+        pricetag3.innerHTML = "39.99";
+      }
+    }
+    </script>
+</body>
+</html>
