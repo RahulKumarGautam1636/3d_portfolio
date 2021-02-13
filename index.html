@@ -34,7 +34,7 @@
     justify-content: space-evenly;
     align-items: center;
   }
-  #child {
+  .child {
     margin: 2rem;
   }
   .toggle {
@@ -71,7 +71,7 @@
      justify-content: space-around;
      align-items: center;
    }
-   #annually {
+   .annually {
      font-family: sans-serif;
      font-weight: bold;
      color: gray;
@@ -136,7 +136,7 @@
      border-bottom: 1px solid;
      border-color: hsl(237, 63%, 64%);
    }
-    #btn {
+    .btn {
      height: 2.6rem;
      width: 15.2rem;
      border-radius: 5px;
@@ -202,22 +202,22 @@
 <body>
 
     <main>
-      <div id="child">
+      <div class="child">
         <h1 id="price">Our Pricing</h1>
       </div>
-      <div class="plans" id="child">
-        <span id="annually">Monthly</span>
+      <div class="plans child">
+        <span class="annually">Monthly</span>
         <span><input type="checkbox" id="switch" class="checkbox" onclick="myfunction()" /><label for="switch" class="toggle"></label></span>
-        <span id="annually">Annualy</span>
+        <span class="annually">Annualy</span>
       </div>
-      <div class="cards" id="child">
+      <div class="cards child">
         <div class="card">
           <h3>Basic</h3>
           <h2>$ <span id="pricetag1" style="font-size: 35px">19.99</span></h2>
           <div><h3><span id="storage1">500 GB</span> Storage</h3></div>
           <div><h3>2 users Allowed</h3></div>
           <div><h3>Send up to 1 GB</h3></div>
-          <button id="btn" type="button" name="button">LEARN MORE</button>
+          <button class="btn" type="button" name="button">LEARN MORE</button>
         </div>
         <div class="cardMiddle">
           <h3>Professional</h3>
@@ -225,7 +225,7 @@
           <div><h3><span id="storage2">1 TB</span> Storage</h3></div>
           <div><h3>5 Users Allowed</h3></div>
           <div><h3>Send up to <span id="send2">10</span>GB</h3></div>
-          <button style="background:white;color:hsl(237, 63%, 64%)" id="btn" type="button" name="button">LEARN MORE</button>
+          <button style="background:white;color:hsl(237, 63%, 64%)" class="btn" type="button" name="button">LEARN MORE</button>
         </div>
         <div class="card">
           <h3>Master</h3>
@@ -233,7 +233,7 @@
           <div><h3><span id="storage3">2 TB</span> Storage</h3></div>
           <div><h3>10 Users Allowed</h3></div>
           <div><h3>Send up to 20 GB</h3></div>
-          <button id="btn" type="button" name="button">LEARN MORE</button>
+          <button class="btn" type="button" name="button">LEARN MORE</button>
         </div>
       </div>
       <div class="attribution">
@@ -241,7 +241,7 @@
         Coded by <a href="#">Rahul Kumar Gautam</a>.
       </div>
     </main>
-    <script type="text/javascript">
+    <script>
     var pricetag1 = document.getElementById("pricetag1");
     var pricetag2 = document.getElementById("pricetag2");
     var pricetag3 = document.getElementById("pricetag3");
