@@ -8,11 +8,32 @@ import { slideIn } from "../utils/motion";
 
 
 const Contact = () => {
-
+  // template_seklm0r template id
+  // service_ewbbvhb service id
+  // BWv8bWywhoOZxcM6x public key
   const [form, setForm] = useState({name: '', email: '', message: ''});
   const [loading, setLoading] = useState(false);
-  const handleChange = () => {}
-  const handleSubmit = () => {}
+  const formRef = useRef();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({...form, [name]: value});
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    emailjs.send('service_ewbbvhb', 'template_seklm0r', { from_name: form.name, to_name: 'Rahul K. Gautam', from_email: form.email, to_email: '1636rahul@gmail.com', message: form.message}, 'BWv8bWywhoOZxcM6x').then(() => {
+      setLoading(false);
+      alert('Thank you. I will get back to you as soon as possible.');
+      setForm({name: '', email: '', message: ''});
+    }), (err) => {
+      setLoading(false);
+      console.log(err);
+      alert('Something went wrong');
+    }
+  }
+  
   return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
       <motion.div variants={slideIn('left', 'tween', 0.2, 1)} className='flex-[0.75] bg-black-100 p-8 rounded-2xl'>
